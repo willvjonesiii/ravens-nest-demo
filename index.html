@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raven's Nest — Alchemical Astrology with Scarlet Korvina</title>
+
+<link rel="icon" type="image/png" href="https://designmywebsitenow.com/images/favicon-merkaba.png">
+<link rel="apple-touch-icon" href="https://designmywebsitenow.com/images/favicon-merkaba.png">
+
+<!-- Social share -->
+<meta property="og:title" content="Raven's Nest — Alchemical Astrology with Scarlet Korvina">
+<meta property="og:description" content="Scarlet Korvina is a modern-day alchemist of the soul, guiding profound inner transformation through astrology, somatic work, and metaphysical wisdom.">
+<meta property="og:image" content="https://designmywebsitenow.com/ravensnest-social.jpg">
+<meta property="og:url" content="https://designmywebsitenow.com/ravensnest">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://designmywebsitenow.com/ravensnest-social.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1582313069724-583de8251015?q=80&w=1920&auto=format&fit=crop">
+
+<style>
+:root{
+  --void:#100d1c;
+  --indigo:#1a1530;
+  --indigo-2:#221a3d;
+  --amber:#c8973a;
+  --amber-lt:#e0b860;
+  --sand:#e8d5b0;
+  --ivory:#faf6ef;
+  --mist:rgba(232,213,176,0.62);
+  --hairline:rgba(200,151,58,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Raleway',sans-serif;
+  background:var(--void);
+  color:var(--sand);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.5;mix-blend-mode:screen;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+h1,h2,h3,.serif{font-family:'Libre Baskerville',serif}
+.cormorant{font-family:'Cormorant Garamond',serif}
+.italic{font-style:italic}
+
+.eyebrow{
+  font-family:'Courier Prime',monospace;
+  font-size:0.72rem;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--amber);font-weight:400;
+}
+.section{padding:clamp(4.5rem,10vw,8.5rem) clamp(1.5rem,5vw,4rem);position:relative;z-index:2}
+.wrap{max-width:1180px;margin:0 auto}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.rv.visible{opacity:1;transform:none}
+
+/* cursor */
+.cursor,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
+.cursor{width:6px;height:6px;background:var(--amber-lt)}
+.cursor-ring{width:30px;height:30px;border:1px solid rgba(200,151,58,0.5);transition:width .3s,height .3s,opacity .3s}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem clamp(1.5rem,5vw,3.5rem);transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline);padding:0.9rem clamp(1.5rem,5vw,3.5rem)}
+.nav-left{display:flex;flex-direction:column;line-height:1.05}
+.nav-brand{font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--ivory);letter-spacing:.02em}
+.nav-tag{font-family:'Courier Prime',monospace;font-size:0.56rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--amber);margin-top:3px}
+.nav-right{display:flex;align-items:center;gap:2.2rem}
+.nav-links{display:flex;gap:1.8rem}
+.nav-links a{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);transition:color .3s;white-space:nowrap}
+.nav-links a:hover{color:var(--amber-lt)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--void);background:var(--amber);padding:0.7rem 1.4rem;border:1px solid var(--amber);transition:background .3s,color .3s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:transparent;color:var(--amber-lt)}
+.nav-toggle{display:none;background:none;border:none;outline:none;-webkit-appearance:none;appearance:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.nav-toggle span{width:24px;height:1.5px;background:var(--sand);transition:.3s}
+.mobile-menu{position:fixed;inset:0;background:rgba(16,13,28,0.97);backdrop-filter:blur(10px);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-family:'Libre Baskerville',serif;font-size:1.5rem;color:var(--sand)}
+.mobile-menu a.italic{font-style:italic;color:var(--amber-lt)}
+
+/* ===== HERO ===== */
+.hero{min-height:100dvh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  transform:scale(1.08) translateZ(0);will-change:transform;transition:transform 8s ease;filter:saturate(0.9)}
+.hero-bg img.loaded{transform:scale(1.06) translateZ(0)}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(105deg,rgba(16,13,28,0.92) 0%,rgba(16,13,28,0.78) 42%,rgba(16,13,28,0.45) 72%,rgba(16,13,28,0.6) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%;padding:0 clamp(1.5rem,5vw,4rem)}
+.hero-inner{max-width:680px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.9rem);line-height:1.06;color:var(--ivory);font-weight:400;margin:1.6rem 0 1.8rem}
+.hero h1 .italic{font-style:italic;color:var(--amber-lt);display:block}
+.hero p.sub{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--sand);max-width:540px;font-weight:300}
+.hero-ctas{display:flex;gap:1.1rem;margin-top:2.6rem;flex-wrap:wrap}
+.btn{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;padding:1rem 2rem;white-space:nowrap;flex-shrink:0;transition:all .35s;cursor:pointer;display:inline-block}
+.btn-solid{background:var(--amber);color:var(--void);border:1px solid var(--amber)}
+.btn-solid:hover{background:var(--amber-lt);border-color:var(--amber-lt)}
+.btn-ghost{border:1px solid var(--mist);color:var(--sand);background:transparent}
+.btn-ghost:hover{border-color:var(--amber-lt);color:var(--amber-lt)}
+.photo-flag{position:absolute;bottom:18px;right:18px;z-index:3;font-family:'Courier Prime',monospace;font-size:0.6rem;letter-spacing:0.12em;
+  background:rgba(200,151,58,0.16);border:1px solid rgba(200,151,58,0.4);color:var(--amber-lt);padding:0.45rem 0.8rem;backdrop-filter:blur(6px);max-width:260px;line-height:1.4}
+
+/* ===== MARQUEE ===== */
+.marquee{background:var(--indigo);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);overflow:hidden;padding:1.1rem 0;position:relative;z-index:2;white-space:nowrap}
+.marquee-track{display:inline-block;animation:scroll 34s linear infinite}
+.marquee-track span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--sand);padding:0 1.6rem}
+.marquee-track span .dot{color:var(--amber);font-style:normal}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== MEET ===== */
+.meet{background:var(--indigo)}
+.meet-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:center}
+.meet-photo{position:relative}
+.meet-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(0.92)}
+.meet-photo::after{content:'';position:absolute;inset:0;border:1px solid var(--hairline);transform:translate(16px,16px);pointer-events:none}
+.meet-flag{position:absolute;top:10px;left:10px;font-family:'Courier Prime',monospace;font-size:0.58rem;letter-spacing:0.1em;
+  background:rgba(200,151,58,0.16);border:1px solid rgba(200,151,58,0.4);color:var(--amber-lt);padding:0.4rem 0.7rem;backdrop-filter:blur(6px);z-index:2;max-width:220px;line-height:1.4}
+.meet h2{font-size:clamp(2rem,4vw,3.1rem);color:var(--ivory);font-weight:400;line-height:1.12;margin:1.1rem 0 1.6rem}
+.meet h2 .italic{font-style:italic;color:var(--amber-lt)}
+.meet p{margin-bottom:1.2rem;color:var(--mist);max-width:60ch}
+.pullquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.4rem,2.6vw,1.95rem);
+  color:var(--sand);line-height:1.4;border-left:2px solid var(--amber);padding-left:1.4rem;margin:2rem 0}
+.read-more{display:inline-block;margin-top:.6rem;font-size:0.76rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);border-bottom:1px solid var(--hairline);padding-bottom:3px;transition:color .3s,border-color .3s}
+.read-more:hover{color:var(--amber-lt);border-color:var(--amber-lt)}
+
+/* ===== SECTION HEAD ===== */
+.sec-head{text-align:center;max-width:680px;margin:0 auto clamp(3rem,6vw,4.5rem)}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.3rem);color:var(--ivory);font-weight:400;line-height:1.12;margin-top:1.1rem}
+.sec-head h2 .italic{font-style:italic;color:var(--amber-lt)}
+.sec-head p{margin-top:1.2rem;color:var(--mist)}
+
+/* ===== SERVICES ===== */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.svc-card{position:relative;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:2rem 1.8rem;background-size:cover;background-position:center;border:1px solid var(--hairline);transition:transform .5s}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(16,13,28,0.95) 0%,rgba(16,13,28,0.62) 55%,rgba(16,13,28,0.35) 100%);transition:background .4s}
+.svc-card:hover{transform:translateY(-6px)}
+.svc-card:hover::before{background:linear-gradient(to top,rgba(16,13,28,0.92) 0%,rgba(16,13,28,0.5) 55%,rgba(16,13,28,0.2) 100%)}
+.svc-card>*{position:relative;z-index:1}
+.svc-num{font-family:'Courier Prime',monospace;font-size:0.72rem;letter-spacing:0.2em;color:var(--amber);margin-bottom:auto}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.65rem;font-weight:500;color:var(--ivory);margin:1.2rem 0 .5rem;line-height:1.2}
+.svc-card p{font-size:0.92rem;color:var(--mist)}
+
+/* ===== FEATURED ===== */
+.featured{background:var(--indigo-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.feat-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.feat-img{position:relative;overflow:hidden}
+.feat-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.feat-badge{display:inline-block;font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--amber);border:1px solid var(--hairline);padding:0.4rem 0.9rem;margin-bottom:1.4rem}
+.featured h2{font-size:clamp(2rem,4vw,3rem);color:var(--ivory);font-weight:400;line-height:1.14;margin-bottom:1.3rem}
+.featured h2 .italic{font-style:italic;color:var(--amber-lt)}
+.featured p{color:var(--mist);margin-bottom:1.6rem;max-width:52ch}
+
+/* ===== BLOG ===== */
+.blog{background:var(--void)}
+.blog-card{display:grid;grid-template-columns:0.9fr 1.1fr;gap:0;border:1px solid var(--hairline);overflow:hidden;align-items:stretch;transition:border-color .4s,box-shadow .4s}
+.blog-card:hover{border-color:var(--amber);box-shadow:0 6px 40px rgba(200,151,58,0.1)}
+.blog-thumb{background-size:cover;background-position:center;min-height:260px}
+.blog-body{padding:clamp(2rem,4vw,3rem);display:flex;flex-direction:column;justify-content:center;background:var(--indigo)}
+.blog-cat{font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem}
+.blog-body h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:500;color:var(--ivory);line-height:1.2;margin-bottom:1rem}
+.blog-body p{color:var(--mist);margin-bottom:1.5rem}
+
+/* ===== TESTIMONIALS ===== */
+.testi{background:var(--indigo)}
+.acc-item{border-bottom:1px solid var(--hairline)}
+.acc-item:first-child{border-top:1px solid var(--hairline)}
+.acc-head{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.8rem 0.5rem;cursor:pointer}
+.acc-head .who{display:flex;flex-direction:column}
+.acc-head .name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--ivory)}
+.acc-head .role{font-family:'Courier Prime',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-top:4px}
+.acc-head .snip{flex:1;color:var(--mist);font-size:0.95rem;display:none}
+.acc-icon{font-size:1.6rem;color:var(--amber);transition:transform .4s;flex-shrink:0;line-height:1}
+.acc-item.open .acc-icon{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.acc-body-inner{padding:0 0.5rem 2rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.4vw,1.8rem);color:var(--sand);line-height:1.45;max-width:62ch}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--void)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.contact h2{font-size:clamp(2rem,4vw,3rem);color:var(--ivory);font-weight:400;line-height:1.14;margin-bottom:1.3rem}
+.contact h2 .italic{font-style:italic;color:var(--amber-lt)}
+.contact p.lead{color:var(--mist);margin-bottom:1.8rem;max-width:46ch}
+.contact .detail{font-family:'Courier Prime',monospace;font-size:0.8rem;letter-spacing:0.08em;color:var(--sand);margin-bottom:0.6rem}
+.contact .detail span{color:var(--amber)}
+#contactForm{display:flex;flex-direction:column;gap:1rem}
+#contactForm input,#contactForm textarea{background:var(--indigo);border:1px solid var(--hairline);color:var(--sand);
+  padding:1rem 1.1rem;font-family:'Raleway',sans-serif;font-size:0.95rem;font-weight:300;transition:border-color .3s}
+#contactForm input::placeholder,#contactForm textarea::placeholder{color:rgba(232,213,176,0.45)}
+#contactForm input:focus,#contactForm textarea:focus{outline:none;border-color:var(--amber)}
+#contactForm button{background:var(--amber);color:var(--void);border:1px solid var(--amber);padding:1rem;
+  font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap}
+#contactForm button:hover{background:var(--amber-lt)}
+#contactForm button:disabled{opacity:0.7;cursor:default}
+
+/* ===== CTA BAND ===== */
+.cta-band{background:linear-gradient(135deg,var(--indigo-2),var(--void));text-align:center;border-top:1px solid var(--hairline)}
+.cta-band h2{font-size:clamp(2.2rem,5vw,4rem);color:var(--ivory);font-weight:400;line-height:1.12;max-width:760px;margin:0 auto 2rem}
+.cta-band h2 .italic{font-style:italic;color:var(--amber-lt)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--indigo);border-radius:3rem 3rem 0 0;padding:clamp(3.5rem,7vw,5.5rem) clamp(1.5rem,5vw,4rem) 2.5rem;position:relative;z-index:2;margin-top:2rem}
+.foot-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--hairline)}
+.foot-brand{font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--ivory)}
+.foot-brand+p{color:var(--mist);margin-top:1rem;max-width:34ch;font-size:0.92rem}
+.foot-col h4{font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.2rem}
+.foot-col a{display:block;color:var(--mist);font-size:0.9rem;margin-bottom:0.7rem;transition:color .3s}
+.foot-col a:hover{color:var(--amber-lt)}
+.foot-bottom{max-width:1180px;margin:2rem auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.12em;color:var(--mist)}
+
+/* ===== ACCESSIBILITY TOGGLE ===== */
+.a11y-btn{position:fixed;bottom:20px;right:20px;z-index:1100;background:var(--amber);color:var(--void);border:none;
+  width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:transform .3s}
+.a11y-btn:hover{transform:scale(1.08)}
+.skip-link{position:absolute;left:-999px;top:0;z-index:2000;background:var(--amber);color:var(--void);padding:0.8rem 1.4rem;font-size:0.9rem}
+.skip-link:focus{left:10px;top:10px}
+
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,.acc-head:focus-visible{outline:3px solid var(--amber-lt);outline-offset:3px}
+
+/* high contrast mode */
+body.a11y{--void:#ffffff;--indigo:#f4f0e8;--indigo-2:#ece6da;--sand:#1a1714;--ivory:#0d0b08;--mist:#33302b;--amber:#9a6a14;--amber-lt:#7a5410;--hairline:rgba(0,0,0,0.25)}
+body.a11y::before{display:none}
+body.a11y .cursor,body.a11y .cursor-ring{display:none}
+body.a11y *{cursor:auto!important}
+body.a11y .hero-overlay{background:linear-gradient(105deg,rgba(255,255,255,0.94) 0%,rgba(255,255,255,0.82) 60%,rgba(255,255,255,0.5) 100%)}
+body.a11y a{color:#0057b8;text-decoration:underline}
+body.a11y .nav-cta,body.a11y .btn-solid,body.a11y #contactForm button,body.a11y .a11y-btn{color:#fff;text-decoration:none}
+body.a11y .eyebrow,body.a11y .nav-links a,body.a11y .nav-tag,body.a11y .svc-num,body.a11y .blog-cat,body.a11y .acc-head .role,body.a11y .foot-col h4,body.a11y .foot-bottom,body.a11y .detail,body.a11y .marquee-track span,body.a11y .nav-cta,body.a11y .btn{font-size:0.97rem!important}
+body.a11y .nav-links a,body.a11y .btn,body.a11y .nav-cta,body.a11y .foot-col a,body.a11y #contactForm button,body.a11y .acc-head{min-height:44px;display:flex;align-items:center}
+body.a11y .cormorant,body.a11y .italic,body.a11y h1,body.a11y h2,body.a11y h3{font-weight:500}
+body.a11y .marquee-track{animation:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .marquee-track{animation:none!important}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (hover:none){body{cursor:auto}.cursor,.cursor-ring{display:none}}
+@media (max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-toggle{display:flex}
+  .meet-grid,.feat-grid,.blog-card,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .blog-thumb{min-height:220px}
+}
+@media (max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column}
+  .hero-ctas .btn{text-align:center}
+  .acc-head .name{font-size:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-left">
+    <a href="#top" class="nav-brand">Raven's Nest</a>
+    <span class="nav-tag">Scarlet Korvina · Soul Alchemy</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#meet">About</a>
+      <a href="#services">Services</a>
+      <a href="#offering">Offering</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Begin Your Journey</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#meet">About</a>
+  <a href="#services">Services</a>
+  <a href="#offering">Offering</a>
+  <a href="#blog">Blog</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="italic">Begin Your Journey</a>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1582313069724-583de8251015?q=80&w=1920&auto=format&fit=crop" id="heroImg" alt="Starlit night sky over the horizon" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner rv">
+      <span class="eyebrow">Alchemical Astrology · Soul Transformation</span>
+      <h1>Unlock your potential with <span class="italic">astrological wisdom.</span></h1>
+      <p class="sub">A modern-day alchemist of the soul, guiding individuals through profound inner transformation with depth, devotion, and discernment.</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn btn-solid">Discover the Work</a>
+        <a href="#contact" class="btn btn-ghost">Begin Your Journey</a>
+      </div>
+    </div>
+  </div>
+  <div class="photo-flag">⬡ Placeholder hero — swap in Scarlet's portrait here</div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Astrology <span class="dot">✦</span></span><span>Somatic Alchemy <span class="dot">✦</span></span><span>Hypnotic States <span class="dot">✦</span></span><span>Yogic Wisdom <span class="dot">✦</span></span><span>Metaphysical Insight <span class="dot">✦</span></span><span>Tarot &amp; Oracle <span class="dot">✦</span></span><span>Remembrance <span class="dot">✦</span></span>
+    <span>Astrology <span class="dot">✦</span></span><span>Somatic Alchemy <span class="dot">✦</span></span><span>Hypnotic States <span class="dot">✦</span></span><span>Yogic Wisdom <span class="dot">✦</span></span><span>Metaphysical Insight <span class="dot">✦</span></span><span>Tarot &amp; Oracle <span class="dot">✦</span></span><span>Remembrance <span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- MEET -->
+<section class="section meet" id="meet">
+  <div class="wrap meet-grid">
+    <div class="meet-photo rv">
+      <div class="meet-flag">⬡ Placeholder — add Scarlet's photo</div>
+      <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=900&auto=format&fit=crop" alt="Portrait placeholder for Scarlet Korvina">
+    </div>
+    <div class="meet-text rv">
+      <span class="eyebrow">Meet Scarlet Korvina</span>
+      <h2>Transformation is not forced. <span class="italic">It is held.</span></h2>
+      <p>Scarlet Korvina is a modern-day alchemist of the soul, guiding individuals through profound inner transformation with depth, devotion, and discernment. Her work is rooted in the understanding that true change does not come from bypassing the darkness, but from entering it with care, curiosity, and a lantern lit by starlight.</p>
+      <p>Drawing from astrology, hypnotic and somatic states, yogic wisdom, metaphysical traditions, and embodied approaches to nourishment and self-regulation, Scarlet's coaching serves as a steady vessel for transformation. Offering both initiation and containment, Scarlet curates a space where unraveling is not rushed, and where the nervous system is honored as much as the psyche and soul.</p>
+      <div class="pullquote">This is not self-improvement. It is self-empowerment through remembrance.</div>
+      <p>Scarlet's work meets those standing at a threshold in moments of identity collapse, awakening, grief, rebirth, or deep reorientation, as well as those seeking clarity around relationships, purpose, and what comes next.</p>
+      <a href="#contact" class="read-more">Work with Scarlet →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The Offerings</span>
+      <h2>Awaken your potential with <span class="italic">celestial guidance.</span></h2>
+      <p>Explore transformative life coaching infused with astrology, designed to empower and enlighten your path.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rv" style="background-image:url('https://plus.unsplash.com/premium_photo-1678355055149-5b907c3cd044?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">01</div>
+        <h3>Alchemical Life Coaching</h3>
+        <p>Transformative coaching sessions designed to align your path with astrological insight and personal growth.</p>
+      </div>
+      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1515942661900-94b3d1972591?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">02</div>
+        <h3>Personalized Astrological Coaching</h3>
+        <p>Tailored sessions reading your chart as a living map, meeting you at the threshold of who you are becoming.</p>
+      </div>
+      <div class="svc-card rv" style="background-image:url('https://plus.unsplash.com/premium_photo-1693007962207-e161ce1562f9?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">03</div>
+        <h3>Metaphysical Guidance Workshops</h3>
+        <p>Group learning experiences that blend metaphysical knowledge with practical, embodied guidance.</p>
+      </div>
+      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1666830062067-618257c7d28f?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">04</div>
+        <h3>Tarot &amp; Oracle Insight Sessions</h3>
+        <p>Divinatory readings that illuminate the present moment and the patterns ready to be transmuted.</p>
+      </div>
+      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">05</div>
+        <h3>Holistic Wellness Integration</h3>
+        <p>Embodied approaches to nourishment and self-regulation, honoring the nervous system as much as the soul.</p>
+      </div>
+      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=900&auto=format&fit=crop')">
+        <div class="svc-num">06</div>
+        <h3>Metaphysical Insight Blog</h3>
+        <p>A curated collection of articles and astrological wisdom to enlighten and empower your personal journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED OFFERING -->
+<section class="section featured" id="offering">
+  <div class="wrap feat-grid">
+    <div class="feat-img rv">
+      <img src="https://images.unsplash.com/photo-1516331138075-f3adc1e149cd?q=80&w=1100&auto=format&fit=crop" alt="Mercury and the cosmos in motion">
+    </div>
+    <div class="feat-text rv">
+      <span class="feat-badge">✦ Now Available</span>
+      <h2>The <span class="italic">Mercury in Motion</span> booking bundle.</h2>
+      <p>At Raven's Nest, we blend alchemical life coaching with deep astrological insights to empower your personal transformation. Our mission is to illuminate your path with metaphysical wisdom, fostering growth and balance for your unique journey.</p>
+      <p>A timely bundle for navigating the shifts ahead. A steady vessel as old patterns transmute and lost parts of the self are reclaimed.</p>
+      <a href="#contact" class="btn btn-solid">Sign Up Here</a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section blog" id="blog">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">From the Nest</span>
+      <h2>Metaphysical insight, <span class="italic">written in the stars.</span></h2>
+      <p>Explore a curated collection of metaphysical articles and astrological wisdom designed to enlighten and empower your personal journey.</p>
+    </div>
+    <a href="#" class="blog-card rv">
+      <div class="blog-thumb" style="background-image:url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=900&auto=format&fit=crop')"></div>
+      <div class="blog-body">
+        <div class="blog-cat">Astrology</div>
+        <h3>Uranus in Gemini</h3>
+        <p>Uranus in Gemini 7/7/25 – 5/2033. June 7, 2025 was notable. Notable for the great awakening it set into motion across communication, curiosity, and the restless mind.</p>
+        <span class="read-more">Explore More →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi" id="testimonials">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Voices of Transformation</span>
+      <h2>Awaken your spirit through <span class="italic">alchemical coaching.</span></h2>
+      <p>Hear from those transformed by a unique blend of astrology and coaching, sharing their journeys and breakthroughs.</p>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item open">
+        <div class="acc-head" tabindex="0" role="button">
+          <div class="who"><span class="name">Luna Hart</span><span class="role">Holistic Wellness Guide</span></div>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">"Raven's Nest coaching opened new paths for growth and clarity unlike anything I've experienced before."</div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" tabindex="0" role="button">
+          <div class="who"><span class="name">Orion Vale</span><span class="role">Astrology Enthusiast</span></div>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">"Insightful, supportive, and transformative sessions that truly honor the cosmic connection within."</div></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" tabindex="0" role="button">
+          <div class="who"><span class="name">Selene Moon</span><span class="role">Metaphysical Blogger</span></div>
+          <span class="acc-icon">+</span>
+        </div>
+        <div class="acc-body"><div class="acc-body-inner">"Every session felt deeply personalized, leaving me inspired and empowered to navigate life's mysteries."</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-text rv">
+      <span class="eyebrow">Begin Your Journey</span>
+      <h2>Transformation, held with <span class="italic">steadiness and care.</span></h2>
+      <p class="lead">Discover how alchemical coaching combined with celestial guidance can empower your journey. Reach out and begin the descent into remembrance.</p>
+      <div class="detail"><span>✦</span> scarlet.korvina@gmail.com</div>
+      <div class="detail"><span>✦</span> (626) 437-7482</div>
+      <div class="detail"><span>✦</span> @ravensnestkorvina</div>
+    </div>
+    <div class="rv">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="interest" placeholder="What are you seeking? (optional)">
+        <textarea name="message" placeholder="Share where you are on your journey" rows="5"></textarea>
+        <button type="submit" id="submitBtn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="section cta-band">
+  <div class="rv">
+    <h2>Until the authentic self is <span class="italic">ready to take flight.</span></h2>
+    <a href="#contact" class="btn btn-solid">Begin Your Journey</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Raven's Nest</div>
+      <p>Alchemical life coaching with astrological wisdom. Transformation held with steadiness and care, until the authentic self is ready to take flight.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <a href="#meet">About</a>
+      <a href="#services">Services</a>
+      <a href="#offering">Offering</a>
+      <a href="#blog">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h4>Connect</h4>
+      <a href="#contact">Contact</a>
+      <a href="mailto:scarlet.korvina@gmail.com">scarlet.korvina@gmail.com</a>
+      <a href="#top">Instagram</a>
+      <a href="#top">Facebook</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Raven's Nest · Scarlet Korvina</span>
+    <span>Self-empowerment through remembrance</span>
+  </div>
+</footer>
+
+<button class="a11y-btn" id="a11yBtn" aria-label="Toggle accessibility mode" title="Accessibility mode">♿</button>
+
+<script>
+// reveal
+const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible'))},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// nav scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// mobile menu
+const tog=document.getElementById('navToggle'),mm=document.getElementById('mobileMenu');
+tog.addEventListener('click',()=>mm.classList.toggle('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+// hero living image
+const hero=document.getElementById('heroImg');
+const onLoad=()=>requestAnimationFrame(()=>hero.classList.add('loaded'));
+hero.addEventListener('load',onLoad); if(hero.complete)onLoad();
+addEventListener('scroll',()=>{const o=Math.min(scrollY*0.04,innerHeight*0.025);hero.style.transform=`scale(1.06) translateY(-${o}px) translateZ(0)`;},{passive:true});
+
+// accordion
+document.querySelectorAll('.acc-head').forEach(h=>{
+  const toggle=()=>{
+    const item=h.parentElement,open=item.classList.contains('open');
+    document.querySelectorAll('.acc-item').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-body').style.maxHeight=null});
+    if(!open){item.classList.add('open');const b=item.querySelector('.acc-body');b.style.maxHeight=b.scrollHeight+'px'}
+  };
+  h.addEventListener('click',toggle);
+  h.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+});
+// open first
+window.addEventListener('load',()=>{const f=document.querySelector('.acc-item.open .acc-body');if(f)f.style.maxHeight=f.scrollHeight+'px'});
+
+// custom cursor (desktop only)
+if(!matchMedia('(hover:none)').matches){
+  const c=document.querySelector('.cursor'),r=document.querySelector('.cursor-ring');
+  let mx=0,my=0,rx=0,ry=0;
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'});
+  (function loop(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.acc-head,.svc-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{r.style.width='46px';r.style.height='46px';r.style.opacity='0.6'});
+    el.addEventListener('mouseleave',()=>{r.style.width='30px';r.style.height='30px';r.style.opacity='1'});
+  });
+}
+
+// accessibility toggle
+const a11y=document.getElementById('a11yBtn');
+if(localStorage.getItem('rn_a11y')==='1')document.body.classList.add('a11y');
+a11y.addEventListener('click',()=>{
+  document.body.classList.toggle('a11y');
+  localStorage.setItem('rn_a11y',document.body.classList.contains('a11y')?'1':'0');
+  document.querySelectorAll('.acc-item.open .acc-body').forEach(b=>b.style.maxHeight=b.scrollHeight+'px');
+});
+
+// contact form
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    const res=await fetch('https://designmywebsitenow.com/api/contact',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({to:'scarlet.korvina@gmail.com',clientName:"Raven's Nest",...Object.fromEntries(new FormData(this))})
+    });
+    if(res.ok){btn.textContent='Message Received ✦';this.reset();}
+    else{btn.textContent='Something went wrong — try again';btn.disabled=false;}
+  }catch{btn.textContent='Something went wrong — try again';btn.disabled=false;}
+});
+</script>
+</body>
+</html>
