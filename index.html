@@ -72,6 +72,8 @@ h1,h2,h3,.serif{font-family:'Libre Baskerville',serif}
 /* cursor */
 .cursor,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen}
 .cursor{width:6px;height:6px;background:var(--amber-lt)}
+.cursor,.cursor-ring{opacity:0}
+body.cursor-ready .cursor,body.cursor-ready .cursor-ring{opacity:1}
 .cursor-ring{width:30px;height:30px;border:1px solid rgba(200,151,58,0.5);transition:width .3s,height .3s,opacity .3s}
 
 /* ===== NAV ===== */
@@ -102,7 +104,7 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 .hero-bg img.loaded{transform:scale(1.06) translateZ(0)}
 .hero-overlay{position:absolute;inset:0;z-index:1;
   background:linear-gradient(105deg,rgba(16,13,28,0.92) 0%,rgba(16,13,28,0.78) 42%,rgba(16,13,28,0.45) 72%,rgba(16,13,28,0.6) 100%)}
-.hero-content{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%;padding:0 clamp(1.5rem,5vw,4rem)}
+.hero-content{position:relative;z-index:2;width:100%;padding:0 clamp(1.5rem,5vw,3.5rem)}
 .hero-inner{max-width:680px}
 .hero h1{font-size:clamp(2.6rem,6.4vw,4.9rem);line-height:1.06;color:var(--ivory);font-weight:400;margin:1.6rem 0 1.8rem}
 .hero h1 .italic{font-style:italic;color:var(--amber-lt);display:block}
@@ -675,7 +677,7 @@ window.addEventListener('load',()=>{const f=document.querySelector('.acc-item.op
 if(!matchMedia('(hover:none)').matches){
   const c=document.querySelector('.cursor'),r=document.querySelector('.cursor-ring');
   let mx=0,my=0,rx=0,ry=0;
-  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px'});
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';document.body.classList.add('cursor-ready')},{once:false});
   (function loop(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop)})();
   document.querySelectorAll('a,button,.acc-head,.svc-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>{r.style.width='46px';r.style.height='46px';r.style.opacity='0.6'});
