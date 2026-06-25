@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://plus.unsplash.com/premium_photo-1673491310188-13caeef2c5cd?q=80&w=1600&auto=format&fit=crop">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1572608705929-0e245b6fa24d?q=80&w=1600&auto=format&fit=crop">
 
 <style>
 :root{
@@ -157,6 +157,7 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 .sky .cstar{fill:#eaf0ff;filter:drop-shadow(0 0 3px rgba(150,180,255,0.9))}
 .sky .cstar.bright{fill:#bcd6ff;filter:drop-shadow(0 0 9px rgba(120,170,255,1))}
 .sky .clabel{fill:rgba(205,214,240,0.42);font-family:'Courier Prime',monospace;font-size:16px;letter-spacing:5px}
+.sky .slabel{fill:rgba(205,214,240,0.34);font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:1px}
 @keyframes twinkle{0%,100%{opacity:0.25}50%{opacity:1}}
 
 .portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
@@ -355,7 +356,7 @@ body.a11y .portal-img{filter:none}
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero-bg">
-    <img src="https://plus.unsplash.com/premium_photo-1673491310188-13caeef2c5cd?q=80&w=1600&auto=format&fit=crop" id="heroImg" alt="Mystical celestial atmosphere" fetchpriority="high">
+    <img src="https://images.unsplash.com/photo-1572608705929-0e245b6fa24d?q=80&w=1600&auto=format&fit=crop" id="heroImg" alt="A raven against a dark mystical sky" fetchpriority="high">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -401,18 +402,30 @@ body.a11y .portal-img{filter:none}
 <!-- SERVICES -->
 <section class="section" id="services">
   <svg class="sky" viewBox="0 0 1400 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <!-- CORVUS · The Raven (accurate asterism: Algorab δ, Gienah γ, Minkar ε, Kraz β, Alchiba α) -->
+    <!-- CORVUS · The Raven (geometry from Stellarium: Gienah γ apex, Algorab δ, Minkar ε, Kraz β, Alchiba α) -->
     <g>
-      <polyline class="cglow" points="583,165 790,218 862,486 502,528 583,165"/>
-      <polyline class="cglow" points="862,486 898,596"/>
-      <polyline class="cline" points="583,165 790,218 862,486 502,528 583,165"/>
-      <polyline class="cline" points="862,486 898,596"/>
-      <circle class="cstar tw" cx="583" cy="165" r="2.6"/>                       <!-- Algorab δ -->
-      <circle class="cstar bright tw" cx="790" cy="218" r="3.6"/>               <!-- Gienah γ (brightest) -->
-      <circle class="cstar tw" cx="862" cy="486" r="2.8"/>                       <!-- Minkar ε -->
-      <circle class="cstar bright tw" cx="502" cy="528" r="3.2"/>               <!-- Kraz β -->
-      <circle class="cstar tw" cx="898" cy="596" r="2.2"/>                       <!-- Alchiba α (beak) -->
-      <text class="clabel" x="600" y="400">CORVUS</text>
+      <!-- top arch + beak: Algorab → Gienah → Minkar → Alchiba -->
+      <polyline class="cglow" points="407,291 601,174 919,330 1044,412"/>
+      <!-- bottom V: Algorab → Kraz → Minkar -->
+      <polyline class="cglow" points="407,291 712,647 919,330"/>
+      <polyline class="cline" points="407,291 601,174 919,330 1044,412"/>
+      <polyline class="cline" points="407,291 712,647 919,330"/>
+      <!-- bright members -->
+      <circle class="cstar bright tw" cx="601" cy="174" r="3.6"/>               <!-- Gienah γ -->
+      <circle class="cstar bright tw" cx="712" cy="647" r="3.2"/>               <!-- Kraz β -->
+      <circle class="cstar tw" cx="407" cy="291" r="2.8"/>                       <!-- Algorab δ -->
+      <circle class="cstar tw" cx="919" cy="330" r="2.8"/>                       <!-- Minkar ε -->
+      <circle class="cstar tw" cx="1044" cy="412" r="2.2"/>                      <!-- Alchiba α (beak) -->
+      <!-- faint members -->
+      <circle class="cstar tw" cx="361" cy="319" r="1.6"/>                       <!-- η Crv -->
+      <circle class="cstar tw" cx="789" cy="441" r="1.6"/>                       <!-- ζ Crv -->
+      <!-- labels -->
+      <text class="clabel" x="640" y="430">CORVUS</text>
+      <text class="slabel" x="610" y="160">Gienah</text>
+      <text class="slabel" x="330" y="283">Algorab</text>
+      <text class="slabel" x="930" y="322">Minkar</text>
+      <text class="slabel" x="720" y="668">Kraz</text>
+      <text class="slabel" x="1055" y="416">Alchiba</text>
     </g>
     <!-- scattered field stars -->
     <circle class="star tw" cx="90" cy="120" r="1.3" style="animation-delay:-0.4s"/>
