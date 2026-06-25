@@ -145,17 +145,52 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 .sec-head h2 .italic{font-style:italic;color:var(--amber-lt)}
 .sec-head p{margin-top:1.2rem;color:var(--mist)}
 
-/* ===== SERVICES ===== */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.svc-card{position:relative;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:flex-end;
-  padding:2rem 1.8rem;background-size:cover;background-position:center;border:1px solid var(--hairline);transition:transform .5s}
-.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(16,13,28,0.95) 0%,rgba(16,13,28,0.62) 55%,rgba(16,13,28,0.35) 100%);transition:background .4s}
-.svc-card:hover{transform:translateY(-6px)}
-.svc-card:hover::before{background:linear-gradient(to top,rgba(16,13,28,0.92) 0%,rgba(16,13,28,0.5) 55%,rgba(16,13,28,0.2) 100%)}
-.svc-card>*{position:relative;z-index:1}
-.svc-num{font-family:'Courier Prime',monospace;font-size:0.72rem;letter-spacing:0.2em;color:var(--amber);margin-bottom:auto}
-.svc-card h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.65rem;font-weight:500;color:var(--ivory);margin:1.2rem 0 .5rem;line-height:1.2}
-.svc-card p{font-size:0.92rem;color:var(--mist)}
+/* ===== SERVICES — PORTALS ===== */
+#services{position:relative;overflow:hidden}
+.sky{position:absolute;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.sky .star{fill:#fff}
+.sky .star.tw{animation:twinkle 4s ease-in-out infinite}
+.sky .cline{stroke:var(--amber);stroke-width:0.8;fill:none;opacity:0.45;stroke-linecap:round;
+  stroke-dasharray:3 3;animation:traceLine 6s ease-in-out infinite}
+.sky .cstar{fill:var(--amber-lt)}
+@keyframes twinkle{0%,100%{opacity:0.25}50%{opacity:1}}
+@keyframes traceLine{0%,100%{opacity:0.22}50%{opacity:0.6}}
+
+.portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(2.5rem,5vw,4rem) clamp(1.5rem,4vw,3rem);
+  position:relative;z-index:1}
+.portal{display:flex;flex-direction:column;align-items:center;text-align:center}
+.portal-disc{position:relative;width:min(230px,62vw);aspect-ratio:1;margin-bottom:1.7rem;
+  animation:float 9s ease-in-out infinite}
+.portal:nth-child(2) .portal-disc{animation-delay:-1.5s}
+.portal:nth-child(3) .portal-disc{animation-delay:-3s}
+.portal:nth-child(4) .portal-disc{animation-delay:-4.5s}
+.portal:nth-child(5) .portal-disc{animation-delay:-6s}
+.portal:nth-child(6) .portal-disc{animation-delay:-7.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+.portal-img{position:absolute;inset:14px;border-radius:50%;background-size:cover;background-position:center;
+  filter:saturate(0.85) brightness(0.7);transition:filter .6s,transform .6s}
+.portal-veil{position:absolute;inset:14px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 50% 42%,rgba(16,13,28,0) 30%,rgba(16,13,28,0.55) 72%,rgba(16,13,28,0.92) 100%);
+  transition:background .6s}
+.portal-ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(200,151,58,0.5);
+  animation:spin 44s linear infinite;transition:border-color .5s}
+.portal-ring2{position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(200,151,58,0.18);
+  animation:spin 60s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portal-glow{position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  box-shadow:0 0 0 1px rgba(200,151,58,0.15),0 0 35px rgba(200,151,58,0.08);transition:box-shadow .6s}
+.portal-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.6rem;color:var(--amber-lt);
+  opacity:0.85;transition:opacity .5s,transform .5s}
+.portal:hover .portal-img{filter:saturate(1) brightness(1.05);transform:scale(1.06)}
+.portal:hover .portal-veil{background:radial-gradient(circle at 50% 42%,rgba(16,13,28,0) 38%,rgba(16,13,28,0.35) 78%,rgba(16,13,28,0.8) 100%)}
+.portal:hover .portal-ring{border-color:rgba(224,184,96,0.9);animation-duration:14s}
+.portal:hover .portal-glow{box-shadow:0 0 0 1px rgba(224,184,96,0.5),0 0 55px rgba(200,151,58,0.3)}
+.portal:hover .portal-num{opacity:0;transform:translate(-50%,-50%) scale(0.7)}
+.portal h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.55rem;font-weight:500;
+  color:var(--ivory);margin-bottom:.55rem;line-height:1.2}
+.portal p{font-size:0.9rem;color:var(--mist);max-width:30ch}
 
 /* ===== FEATURED ===== */
 .featured{background:var(--indigo-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
@@ -249,6 +284,10 @@ body.a11y .eyebrow,body.a11y .nav-links a,body.a11y .nav-tag,body.a11y .svc-num,
 body.a11y .nav-links a,body.a11y .btn,body.a11y .nav-cta,body.a11y .foot-col a,body.a11y #contactForm button,body.a11y .acc-head{min-height:44px;display:flex;align-items:center}
 body.a11y .cormorant,body.a11y .italic,body.a11y h1,body.a11y h2,body.a11y h3{font-weight:500}
 body.a11y .marquee-track{animation:none}
+body.a11y .sky{display:none}
+body.a11y .portal-disc{animation:none}
+body.a11y .portal-ring,body.a11y .portal-ring2{animation:none}
+body.a11y .portal-img{filter:none}
 
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -261,12 +300,12 @@ body.a11y .marquee-track{animation:none}
   .nav-links,.nav-cta{display:none}
   .nav-toggle{display:flex}
   .meet-grid,.feat-grid,.blog-card,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .svc-grid{grid-template-columns:1fr 1fr}
+  .portal-grid{grid-template-columns:1fr 1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
   .blog-thumb{min-height:220px}
 }
 @media (max-width:560px){
-  .svc-grid{grid-template-columns:1fr}
+  .portal-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
   .foot-grid{grid-template-columns:1fr}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{text-align:center}
@@ -358,40 +397,108 @@ body.a11y .marquee-track{animation:none}
 
 <!-- SERVICES -->
 <section class="section" id="services">
+  <svg class="sky" viewBox="0 0 1400 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <!-- Big Dipper -->
+    <polyline class="cline" points="120,180 200,160 280,150 350,170 360,250 470,260 460,180 350,170"/>
+    <circle class="cstar tw" cx="120" cy="180" r="2.4"/><circle class="cstar tw" cx="200" cy="160" r="2"/>
+    <circle class="cstar tw" cx="280" cy="150" r="2.2"/><circle class="cstar tw" cx="350" cy="170" r="2.4"/>
+    <circle class="cstar tw" cx="360" cy="250" r="2"/><circle class="cstar tw" cx="470" cy="260" r="2.2"/>
+    <circle class="cstar tw" cx="460" cy="180" r="2"/>
+    <!-- Cassiopeia (W) -->
+    <polyline class="cline" points="1080,150 1160,210 1235,155 1305,215 1365,150"/>
+    <circle class="cstar tw" cx="1080" cy="150" r="2.2"/><circle class="cstar tw" cx="1160" cy="210" r="2"/>
+    <circle class="cstar tw" cx="1235" cy="155" r="2.4"/><circle class="cstar tw" cx="1305" cy="215" r="2"/>
+    <circle class="cstar tw" cx="1365" cy="150" r="2.2"/>
+    <!-- Orion -->
+    <polyline class="cline" points="600,470 655,545 695,565 735,585 770,500"/>
+    <polyline class="cline" points="655,545 625,665"/>
+    <polyline class="cline" points="735,585 765,675"/>
+    <circle class="cstar tw" cx="600" cy="470" r="2.6"/><circle class="cstar tw" cx="770" cy="500" r="2.2"/>
+    <circle class="cstar tw" cx="655" cy="545" r="1.9"/><circle class="cstar tw" cx="695" cy="565" r="1.9"/>
+    <circle class="cstar tw" cx="735" cy="585" r="1.9"/><circle class="cstar tw" cx="625" cy="665" r="2.6"/>
+    <circle class="cstar tw" cx="765" cy="675" r="2.2"/>
+    <!-- scattered stars -->
+    <circle class="star tw" cx="90" cy="420" r="1.3" style="animation-delay:-0.4s"/>
+    <circle class="star tw" cx="160" cy="560" r="1" style="animation-delay:-1.2s"/>
+    <circle class="star tw" cx="240" cy="480" r="1.4" style="animation-delay:-2.1s"/>
+    <circle class="star tw" cx="330" cy="600" r="1" style="animation-delay:-0.8s"/>
+    <circle class="star tw" cx="420" cy="430" r="1.2" style="animation-delay:-3.1s"/>
+    <circle class="star tw" cx="500" cy="540" r="1" style="animation-delay:-1.7s"/>
+    <circle class="star tw" cx="560" cy="120" r="1.3" style="animation-delay:-2.6s"/>
+    <circle class="star tw" cx="690" cy="180" r="1" style="animation-delay:-0.5s"/>
+    <circle class="star tw" cx="820" cy="130" r="1.4" style="animation-delay:-1.9s"/>
+    <circle class="star tw" cx="900" cy="240" r="1" style="animation-delay:-3.4s"/>
+    <circle class="star tw" cx="980" cy="380" r="1.2" style="animation-delay:-0.9s"/>
+    <circle class="star tw" cx="1060" cy="470" r="1" style="animation-delay:-2.3s"/>
+    <circle class="star tw" cx="1150" cy="560" r="1.3" style="animation-delay:-1.1s"/>
+    <circle class="star tw" cx="1240" cy="430" r="1" style="animation-delay:-3.7s"/>
+    <circle class="star tw" cx="1320" cy="540" r="1.2" style="animation-delay:-0.6s"/>
+    <circle class="star tw" cx="1360" cy="650" r="1" style="animation-delay:-2.8s"/>
+    <circle class="star tw" cx="80" cy="650" r="1" style="animation-delay:-1.5s"/>
+    <circle class="star tw" cx="450" cy="680" r="1.2" style="animation-delay:-3.2s"/>
+    <circle class="star tw" cx="880" cy="610" r="1" style="animation-delay:-0.7s"/>
+    <circle class="star tw" cx="1010" cy="660" r="1.3" style="animation-delay:-2.0s"/>
+    <circle class="star tw" cx="1180" cy="110" r="1" style="animation-delay:-1.4s"/>
+    <circle class="star tw" cx="960" cy="90" r="1.2" style="animation-delay:-3.5s"/>
+  </svg>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">The Offerings</span>
       <h2>Awaken your potential with <span class="italic">celestial guidance.</span></h2>
       <p>Explore transformative life coaching infused with astrology, designed to empower and enlighten your path.</p>
     </div>
-    <div class="svc-grid">
-      <div class="svc-card rv" style="background-image:url('https://plus.unsplash.com/premium_photo-1678355055149-5b907c3cd044?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">01</div>
+    <div class="portal-grid">
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://plus.unsplash.com/premium_photo-1678355055149-5b907c3cd044?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">I</div>
+        </div>
         <h3>Alchemical Life Coaching</h3>
         <p>Transformative coaching sessions designed to align your path with astrological insight and personal growth.</p>
       </div>
-      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1515942661900-94b3d1972591?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">02</div>
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://images.unsplash.com/photo-1515942661900-94b3d1972591?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">II</div>
+        </div>
         <h3>Personalized Astrological Coaching</h3>
         <p>Tailored sessions reading your chart as a living map, meeting you at the threshold of who you are becoming.</p>
       </div>
-      <div class="svc-card rv" style="background-image:url('https://plus.unsplash.com/premium_photo-1693007962207-e161ce1562f9?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">03</div>
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://plus.unsplash.com/premium_photo-1693007962207-e161ce1562f9?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">III</div>
+        </div>
         <h3>Metaphysical Guidance Workshops</h3>
         <p>Group learning experiences that blend metaphysical knowledge with practical, embodied guidance.</p>
       </div>
-      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1666830062067-618257c7d28f?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">04</div>
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://images.unsplash.com/photo-1666830062067-618257c7d28f?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">IV</div>
+        </div>
         <h3>Tarot &amp; Oracle Insight Sessions</h3>
         <p>Divinatory readings that illuminate the present moment and the patterns ready to be transmuted.</p>
       </div>
-      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">05</div>
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://images.unsplash.com/photo-1629275622835-f42d081fe666?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">V</div>
+        </div>
         <h3>Holistic Wellness Integration</h3>
         <p>Embodied approaches to nourishment and self-regulation, honoring the nervous system as much as the soul.</p>
       </div>
-      <div class="svc-card rv" style="background-image:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=900&auto=format&fit=crop')">
-        <div class="svc-num">06</div>
+      <div class="portal rv">
+        <div class="portal-disc">
+          <div class="portal-img" style="background-image:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=600&auto=format&fit=crop')"></div>
+          <div class="portal-veil"></div><div class="portal-ring"></div><div class="portal-ring2"></div><div class="portal-glow"></div>
+          <div class="portal-num">VI</div>
+        </div>
         <h3>Metaphysical Insight Blog</h3>
         <p>A curated collection of articles and astrological wisdom to enlighten and empower your personal journey.</p>
       </div>
