@@ -160,8 +160,9 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 /* ===== FEATURED ===== */
 .featured{background:var(--indigo-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
 .feat-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
-.feat-img{position:relative;overflow:hidden}
-.feat-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.feat-img{position:relative;display:flex;justify-content:center}
+.feat-img img{width:auto;max-width:100%;max-height:560px;object-fit:contain;
+  box-shadow:0 18px 60px rgba(0,0,0,0.55),0 0 60px rgba(200,151,58,0.12)}
 .feat-badge{display:inline-block;font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;
   color:var(--amber);border:1px solid var(--hairline);padding:0.4rem 0.9rem;margin-bottom:1.4rem}
 .featured h2{font-size:clamp(2rem,4vw,3rem);color:var(--ivory);font-weight:400;line-height:1.14;margin-bottom:1.3rem}
@@ -402,13 +403,12 @@ body.a11y .marquee-track{animation:none}
 <section class="section featured" id="offering">
   <div class="wrap feat-grid">
     <div class="feat-img rv">
-      <img src="https://images.unsplash.com/photo-1516331138075-f3adc1e149cd?q=80&w=1100&auto=format&fit=crop" alt="Mercury and the cosmos in motion">
+      <img src="mercury-in-motion-bundle.jpg" alt="Mercury in Motion — A Soul Navigator's Field Guide, downloadable bundle cover">
     </div>
     <div class="feat-text rv">
       <span class="feat-badge">✦ Now Available</span>
       <h2>The <span class="italic">Mercury in Motion</span> booking bundle.</h2>
       <p>At Raven's Nest, we blend alchemical life coaching with deep astrological insights to empower your personal transformation. Our mission is to illuminate your path with metaphysical wisdom, fostering growth and balance for your unique journey.</p>
-      <p>A timely bundle for navigating the shifts ahead. A steady vessel as old patterns transmute and lost parts of the self are reclaimed.</p>
       <a href="#contact" class="btn btn-solid">Sign Up Here</a>
     </div>
   </div>
