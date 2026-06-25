@@ -127,7 +127,7 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 .meet{background:var(--indigo)}
 .meet-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:center}
 .meet-photo{position:relative}
-.meet-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(0.92)}
+.meet-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 22%;filter:saturate(0.92)}
 .meet-photo::after{content:'';position:absolute;inset:0;border:1px solid var(--hairline);transform:translate(16px,16px);pointer-events:none}
 .meet-flag{position:absolute;top:10px;left:10px;font-family:'Courier Prime',monospace;font-size:0.58rem;letter-spacing:0.1em;
   background:rgba(200,151,58,0.16);border:1px solid rgba(200,151,58,0.4);color:var(--amber-lt);padding:0.4rem 0.7rem;backdrop-filter:blur(6px);z-index:2;max-width:220px;line-height:1.4}
@@ -341,8 +341,7 @@ body.a11y .marquee-track{animation:none}
 <section class="section meet" id="meet">
   <div class="wrap meet-grid">
     <div class="meet-photo rv">
-      <div class="meet-flag">⬡ Placeholder — add Scarlet's photo</div>
-      <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=900&auto=format&fit=crop" alt="Portrait placeholder for Scarlet Korvina">
+      <img src="scarlet-korvina.jpg" alt="Scarlet Korvina, founder of Raven's Nest">
     </div>
     <div class="meet-text rv">
       <span class="eyebrow">Meet Scarlet Korvina</span>
