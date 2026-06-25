@@ -80,7 +80,11 @@ body.cursor-ready .cursor,body.cursor-ready .cursor-ring{opacity:1}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
   padding:1.4rem clamp(1.5rem,5vw,3.5rem);transition:background .4s,backdrop-filter .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline);padding:0.9rem clamp(1.5rem,5vw,3.5rem)}
-.nav-left{display:flex;flex-direction:column;line-height:1.05}
+.nav-left{display:flex;flex-direction:row;align-items:center;gap:0.7rem}
+.nav-left-txt{display:flex;flex-direction:column;line-height:1.05}
+.nav-logo{height:40px;width:auto;display:block;transition:height .4s;
+  filter:brightness(0) saturate(100%) invert(63%) sepia(53%) saturate(560%) hue-rotate(2deg) brightness(91%) contrast(89%)}
+nav.scrolled .nav-logo{height:32px}
 .nav-brand{font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--ivory);letter-spacing:.02em}
 .nav-tag{font-family:'Courier Prime',monospace;font-size:0.56rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--amber);margin-top:3px}
 .nav-right{display:flex;align-items:center;gap:1.6rem}
@@ -258,6 +262,8 @@ nav.scrolled{background:rgba(16,13,28,0.82);backdrop-filter:blur(14px);border-bo
 /* ===== FOOTER ===== */
 footer{background:var(--indigo);border-radius:3rem 3rem 0 0;padding:clamp(3.5rem,7vw,5.5rem) clamp(1.5rem,5vw,4rem) 2.5rem;position:relative;z-index:2;margin-top:2rem}
 .foot-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid var(--hairline)}
+.foot-logo{height:54px;width:auto;margin-bottom:1rem;
+  filter:brightness(0) saturate(100%) invert(63%) sepia(53%) saturate(560%) hue-rotate(2deg) brightness(91%) contrast(89%)}
 .foot-brand{font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--ivory)}
 .foot-brand+p{color:var(--mist);margin-top:1rem;max-width:34ch;font-size:0.92rem}
 .foot-col h4{font-family:'Courier Prime',monospace;font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.2rem}
@@ -326,8 +332,11 @@ body.a11y .portal-img{filter:none}
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
-    <a href="#top" class="nav-brand">Raven's Nest</a>
-    <span class="nav-tag">Scarlet Korvina · Soul Alchemy</span>
+    <a href="#top" aria-label="Raven's Nest home"><img class="nav-logo" src="ravens-nest-logo.webp" alt="Raven's Nest"></a>
+    <div class="nav-left-txt">
+      <a href="#top" class="nav-brand">Raven's Nest</a>
+      <span class="nav-tag">Scarlet Korvina · Soul Alchemy</span>
+    </div>
   </div>
   <div class="nav-right">
     <div class="nav-links">
@@ -624,6 +633,7 @@ body.a11y .portal-img{filter:none}
 <footer>
   <div class="foot-grid">
     <div>
+      <img class="foot-logo" src="ravens-nest-logo.webp" alt="Raven's Nest">
       <div class="foot-brand">Raven's Nest</div>
       <p>Alchemical life coaching with astrological wisdom. Transformation held with steadiness and care, until the authentic self is ready to take flight.</p>
     </div>
